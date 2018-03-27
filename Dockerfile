@@ -24,10 +24,10 @@ RUN apk add --no-cache git bzr rpm xz supervisor gcc musl-dev && \
     go get -u github.com/cloudflare/cfssl/cmd/cfssljson && \
     apk del gcc && \
     go get -u github.com/coreos/jwtproxy/cmd/jwtproxy && \
-    go get -u -d github.com/coreos/clair/cmd/clair && \
-    cd /go/src/github.com/coreos/clair && \
+    go get -u -d github.com/liuyusen/withproxy/cmd/clair && \
+    cd /go/src/github.com/liuyusen/withproxy && \
     git checkout $GIT_TAG && \
-    go install github.com/coreos/clair/cmd/clair && \
+    go install github.com/liuyusen/withproxy/cmd/clair && \
     rm -rf /usr/local/go $GOPATH/src $GOPATH/pkg # 22FEB2017
 
 ADD generate_mitm_ca.sh /generate_mitm_ca.sh
